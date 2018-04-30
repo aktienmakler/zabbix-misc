@@ -1,1 +1,6 @@
+Erstellen Sie einen Zabbix-Host, der allgemeine Daten des Freifunknetzwerks bereitstellt.
+Legen Sie dort folgende Macros an und passen Sie die URLs der json-Dateien auf Ihr Netzwerk an.
 
+{$URL_NODELIST_JSON}	= https://www.freifunk-gera-greiz.de/meshviewer/data/nodelist.json
+{$URL_NODES_JSON}	= https://www.freifunk-gera-greiz.de/meshviewer/data/nodes.json
+{$URL_RAW_JSON}		= http://map.ffggrz.de/data/raw.json
