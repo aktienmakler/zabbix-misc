@@ -4,3 +4,20 @@ Legen Sie dort folgende Macros an und passen Sie die URLs der json-Dateien auf I
 {$URL_NODELIST_JSON}	= https://www.freifunk-gera-greiz.de/meshviewer/data/nodelist.json
 {$URL_NODES_JSON}	= https://www.freifunk-gera-greiz.de/meshviewer/data/nodes.json
 {$URL_RAW_JSON}		= http://map.ffggrz.de/data/raw.json
+
+######################
+# ffnodes2groups.php #
+######################
+Weist den übernommenen Knoten vorgegebene Gruppen innerhalb von Zabbix zu. Das Skript sollte per cron gestartet werden.
+Arbeitsweise:
+- Das Skript sucht nach Knoten eines bestimmten Templates (bestimmte ID).
+- Die Namen dieser Knoten werden auf Schlüsselbegriffe (Gruppennamen) durchsucht und anschließend diesen Gruppen zugewiesen.
+- Je Knoten ist nur eine Gruppe möglich.
+- Die Gruppen werden als Untergruppen gesucht. Die Gruppen müssen existieren.
+
+Beispiel:
+Gruppen {Standorte/Standort1, Standorte/Standort2, ..., Standorte/StandortX}
+Knoten
+  Foo-Standort1-Bar   =>  Standorte/Standort1
+  Foo2-Standort1-Bar  =>  Standorte/Standort1
+  Foo3-Standort2-Bar2 =>  Standorte/Standort2
